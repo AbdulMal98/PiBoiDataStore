@@ -31,5 +31,5 @@ def stats(temperature, pressure, humidity):
 def readAtpData():
     while True:
         temperature, pressure, humidity = bme280.readBME280All()
-        stats(temperature, pressure, humidity)
+        stats(temperature, pressure, altitude, timestamp)
         time.sleep(10)
