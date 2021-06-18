@@ -1,9 +1,6 @@
-import bme280
-import schedule
-import time
 import datetime
 
-(chip_id, chip_version) = bme280.readBME280ID(0x76)
+import reader.bme280 as bme280
 
 PRESSURE_AT_SEA_LEVEL = 1013.25
 STANDARD_LAPSE_RATE = 0.0065
@@ -17,19 +14,9 @@ def calculateAltitudeFromHypsometric(currentPressure, currentCelsius):
 
 
 def getTimestamp():
-    now = datetime.datetime.now()
-    print(now)
-
-
-def stats(temperature, pressure, humidity):
-    print("temperature : ", temperature, "C")
-    print("pressure : %.3f" % pressure + " hPa")
-    print("altitude : %.3f" % calculateAltitudeFromHypsometric(pressure, temperature) + " m")
-    print("timestamp : ", getTimestamp())
+    return datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
 
 def readAtpData():
-    while True:
-        temperature, pressure, humidity = bme280.readBME280All()
-        stats(temperature, pressure, altitude, timestamp)
-        time.sleep(10)
+    temperature, pressure = bme280.readBME280All()
+    return temperature, pressure, calculateAltitudeFromHypsometric(pressure, temperature), getTimestamp()

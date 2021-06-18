@@ -1,13 +1,15 @@
-from reader import bme280
 from reader.atp_reader import readAtpData
+
+from client.httpclient import postAtp
+import time
 
 
 def main():
-    (chip_id, chip_version) = bme280.readBME280ID()
-    print("Chip ID     :", chip_id)
-    print("Version     :", chip_version)
-
-    readAtpData()
+    while True:
+        temperature, pressure, altitude, timestamp = readAtpData()
+        postAtp(temperature, pressure, altitude, timestamp)
+        print("Post completed!")
+        time.sleep(10)
 
 
 if __name__ == "__main__":
