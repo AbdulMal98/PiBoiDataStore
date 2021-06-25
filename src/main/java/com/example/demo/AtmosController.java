@@ -1,20 +1,24 @@
 package com.example.demo;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/atp")
+@ResponseBody
 @RequiredArgsConstructor
 public class AtmosController {
+
     private final AtmosRepository repository;
+
     @GetMapping("/test")
-    public String test(){
-        return "dog no work";
+    public ResponseEntity test() {
+        return ResponseEntity.ok("it work");
     }
 
 
@@ -26,7 +30,12 @@ public class AtmosController {
 
     @PostMapping("/add")
     public AtmosData getData_entry(@RequestBody AtmosData data_entry) {
+
         return repository.save(data_entry);
+    }
+    @PostMapping("/test")
+    public Test getTest(@RequestBody Test test){
+        return test;
     }
 
 
