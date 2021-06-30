@@ -8,7 +8,7 @@ import java.util.List;
 @RestController
 @ResponseBody
 @RequiredArgsConstructor
-public class herAtmosController {
+public class AtmosController {
 
     private final AtmosRepository repository;
 
