@@ -8,7 +8,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Data_Table", schema = "atpschema")
+@Table(name="Data_Table", schema = "ATPSchema")
 public class AtmosData {
     @Column(name = "Id")
     private @Id @GeneratedValue Long id;
