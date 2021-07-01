@@ -8,9 +8,12 @@ password: str = "MGSgQYPRuI"
 
 def postAtp(temperature, pressure, altitude, timestamp):
     datadict = {"timestamp": timestamp, "altitude": altitude, "temperature": temperature, "pressure": pressure}
-    r = requests.post("http://localhost:8080", json=datadict, headers=getBasicAuthHeader())
+    r = requests.post("https://sleepy-badlands-03259.herokuapp.com/add", json=datadict, headers=getBasicAuthHeader())
     print(r.status_code)
 
 
 def getBasicAuthHeader():
-    return {"Authorization": base64.b64encode(user + ":" + password)}
+    authVal = user + ":" + password
+    authVal_bytes = authVal.encode('ascii')
+    encodedVal = base64.b64encode(authVal_bytes)
+    return {"Authorization": encodedVal}
