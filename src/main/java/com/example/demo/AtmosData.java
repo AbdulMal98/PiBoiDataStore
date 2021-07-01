@@ -15,14 +15,14 @@ public class AtmosData {
     @Column(name = "Timestamp")
     private Date timestamp;
     @Column(name = "Altitude")
-    private int altitude;
+    private double altitude;
     @Column(name = "Temperature")
-    private int temperature;
+    private double temperature;
     @Column(name = "Pressure")
-    private int pressure;
+    private double pressure;
 
 
-    public AtmosData(Date timestamp, int temperature, int pressure, int altitude) {
+    public AtmosData(Date timestamp, double temperature, double pressure, double altitude) {
         this.timestamp = timestamp;
         this.temperature = temperature;
         this.pressure = pressure;
@@ -45,27 +45,27 @@ public class AtmosData {
         this.timestamp = timestamp;
     }
 
-    public int getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    public int getPressure() {
+    public double getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
+    public void setPressure(double pressure) {
         this.pressure = pressure;
     }
 
-    public int getAltitude() {
+    public double getAltitude() {
         return altitude;
     }
 
-    public void setAltitude(int altitude) {
+    public void setAltitude(double altitude) {
         this.altitude = altitude;
     }
 
