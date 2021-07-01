@@ -1,7 +1,7 @@
 #Spring MVC Application
  
  
- **Requirements**
+ **Requirements** ---
  JDK 1.8
  Maven 3
 
