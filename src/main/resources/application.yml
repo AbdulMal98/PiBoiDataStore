@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: postgres://gmdjttgdqtdsuh:45695082548a6dde48a39342f509eca51062435cc1f17fa0f4cf41fc775e56e5@ec2-52-86-25-51.compute-1.amazonaws.com:5432/d2c7ccrbktdejl?currentSchema=ATPSchema
+    username: ${datasource_user}
+    password: ${datasource_password}
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  security:
+    user:
+      name: ${spring_user}
+      password: ${spring_password}
+
+
+
